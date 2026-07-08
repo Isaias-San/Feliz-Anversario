@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f7f4ef;
+    background-image: radial-gradient(#e8e3d9 1px, transparent 0);
+    background-size: 24px 24px;
+    color: #5c4d43;
+    overflow-x: hidden;
+}
+
+/* 1. LOADER */
+.loader-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: #f7f4ef; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; z-index: 999;
+}
+.corazon-carga { font-size: 4rem; animation: latido 1.2s infinite; }
+.loader-container h2 { font-size: 1.3rem; margin-top: 20px; color: #7a685c; text-align: center; padding: 0 20px; }
+.barra-carga { width: 180px; height: 4px; background-color: #e8e3d9; margin-top: 20px; border-radius: 10px; position: relative; overflow: hidden; }
+.barra-carga::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 40%; background-color: #d4a373; border-radius: 10px; animation: cargar 1.3s infinite ease-in-out; }
+
+@keyframes cargar { 0% { left: -40%; } 100% { left: 100%; } }
+@keyframes latido { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* 2. LOGIN */
+.login-container { height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.login-box { background: #fff; border: 1px solid #e8e3d9; padding: 40px 25px; border-radius: 20px; max-width: 380px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(92, 77, 67, 0.05); }
+.login-box h2 { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #bc6c25; margin-bottom: 10px; }
+.pista { font-size: 0.85rem; color: #8c786c; margin-bottom: 25px; line-height: 1.4; }
+#passwordInput { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; background-color: #faf9f6; color: #5c4d43; font-size: 1rem; text-align: center; margin-bottom: 20px; outline: none; }
+#passwordInput:focus { border-color: #d4a373; }
+.login-box button { background-color: #bc6c25; color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 600; cursor: pointer; width: 100%; }
+.error-text { color: #de2c2c; font-size: 0.9rem; margin-top: 15px; }
+
+/* 3. CONTENIDO PRINCIPAL */
+.seccion-aniversario { padding: 40px 20px 20px; text-align: center; }
+.titulo-scrapbook { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: #bc6c25; line-height: 1.2; }
+.subtitulo { color: #8c786c; margin-top: 8px; font-size: 0.95rem; }
+.titulo-seccion { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #bc6c25; text-align: center; margin-bottom: 25px; }
+
+/* NUEVOS ESTILOS RESPONSIVOS PARA EL CONTADOR GIGANTE */
+.seccion-contador {
+    padding: 30px 15px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+.contador-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.contador-tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #e8e3d9;
+    padding: 15px 10px;
+    border-radius: 14px;
+    box-shadow: 0 6px 15px rgba(92, 77, 67, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.numero-grande {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #bc6c25;
+    line-height: 1;
+}
+.etiqueta-numero {
+    font-size: 0.8rem;
+    color: #8c786c;
+    margin-top: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.contador-pie {
+    font-size: 0.95rem;
+    color: #8c786c;
+    font-style: italic;
+}
+
+/* Carta / Papel Nota */
+.seccion-carta { padding: 30px 15px; }
+.papel-nota {
+    background: #fff; background-image: linear-gradient(#e8e3d9 1px, transparent 1px); background-size: 100% 2rem;
+    line-height: 2rem; max-width: 580px; margin: 0 auto; padding: 35px 25px; border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04); border-left: 3px solid #ffb5a7; text-align: left;
+}
+.titulo-carta { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: #bc6c25; margin-bottom: 15px; }
+.papel-nota p { font-size: 1rem; margin-bottom: 20px; color: #5c4d43; }
+.firma { text-align: right; color: #d4a373; font-weight: 600; }
+
+/* Fotos Polaroid */
+.seccion-fotos { padding: 40px 15px; }
+.instruccion-fotos { text-align: center; color: #8c786c; font-size: 0.85rem; margin:-15px 0 30px; }
+.grid-fotos { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; max-width: 900px; margin: 0 auto; }
+.polaroid-card {
+    background: #fff; padding: 12px 12px 20px 12px; border-radius: 2px; width: 100%; max-width: 240px; cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.03); position: relative; transition: transform 0.3s;
+}
+.polaroid-card:hover { transform: scale(1.03) rotate(1.5deg); }
+.polaroid-card img { width: 100%; height: 210px; object-fit: cover; display: block; border: 1px solid #f0ede6; }
+.polaroid-text { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #5c4d43; margin-top: 12px; }
+.washi-tape { position: absolute; top: -12px; left: 30%; width: 40%; height: 22px; background-color: rgba(212, 163, 115, 0.25); transform: rotate(-2deg); }
+
+/* Cupones */
+.seccion-cupones { padding: 40px 15px 60px; }
+.contenedor-cupones { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; max-width: 850px; margin: 0 auto; }
+.cupon-card { background: #fff; border: 2px dashed #d4a373; padding: 22px 15px; border-radius: 12px; width: 100%; max-width: 240px; cursor: pointer; transition: all 0.3s; text-align: center; }
+.cupon-card:hover { background-color: #fefae0; transform: translateY(-3px); }
+.cupon-card h3 { font-size: 1.1rem; color: #bc6c25; margin-bottom: 6px; }
+.cupon-card p { font-size: 0.8rem; color: #8c786c; }
+
+/* Modal */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(92, 77, 67, 0.4); backdrop-filter: blur(4px); z-index: 1000; justify-content: center; align-items: center; }
+.modal-content { background: #fff; border-radius: 16px; padding: 35px 25px; max-width: 380px; width: 85%; text-align: center; position: relative; border-top: 4px solid #bc6c25; }
+#modalTexto { font-size: 1.1rem; line-height: 1.6; color: #5c4d43; }
+.close-btn { position: absolute; top: 5px; right: 12px; font-size: 26px; color: #a39284; cursor: pointer; }
+
+/* REGLAS RESPONSIVAS EXTRAS PARA CELULARES PEQUEÑOS */
+@media (max-width: 480px) {
+    .titulo-scrapbook { font-size: 2.4rem; }
+    .contador-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .numero-grande { font-size: 2rem; }
+    .etiqueta-numero { font-size: 0.75rem; }
+    .papel-nota { padding: 25px 20px; }
+}
+

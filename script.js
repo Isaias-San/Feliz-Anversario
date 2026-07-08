@@ -10,7 +10,7 @@ function verificarClave() {
     const error = document.getElementById('errorMsg');
     
     // Contraseña: 08/10/2023
-    if (input === "08/10/2023" || input === "08-10-2023" || input === "8/10/2023") {
+    if (input === "081023" || input === "08-10-2023" || input === "8/10/2023") {
         document.getElementById('pantallaLogin').style.display = 'none';
         document.getElementById('contenidoPrincipal').style.display = 'block';
         
